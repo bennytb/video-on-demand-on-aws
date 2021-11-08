@@ -55,6 +55,18 @@ let PutNotification = async (config) => {
                                 Key: {
                                     FilterRules: [{
                                         Name: 'suffix',
+                                        Value: '.MP4'
+                                    }]
+                                }
+                            }
+                        },
+                        {
+                            Events: ['s3:ObjectCreated:*'],
+                            LambdaFunctionArn: config.IngestArn,
+                            Filter: {
+                                Key: {
+                                    FilterRules: [{
+                                        Name: 'suffix',
                                         Value: '.m4v'
                                     }]
                                 }
@@ -68,6 +80,30 @@ let PutNotification = async (config) => {
                                     FilterRules: [{
                                         Name: 'suffix',
                                         Value: '.mov'
+                                    }]
+                                }
+                            }
+                        },
+                        {
+                            Events: ['s3:ObjectCreated:*'],
+                            LambdaFunctionArn: config.IngestArn,
+                            Filter: {
+                                Key: {
+                                    FilterRules: [{
+                                        Name: 'suffix',
+                                        Value: '.MOV'
+                                    }]
+                                }
+                            }
+                        },
+                        {
+                            Events: ['s3:ObjectCreated:*'],
+                            LambdaFunctionArn: config.IngestArn,
+                            Filter: {
+                                Key: {
+                                    FilterRules: [{
+                                        Name: 'suffix',
+                                        Value: '.ts'
                                     }]
                                 }
                             }
